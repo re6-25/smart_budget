@@ -19,11 +19,7 @@
 
 إليك بعض واجهات تطبيق الميزانية الذكية (قم بحذف الصور التي لا تتعلق بالتطبيق إن وجدت):
 
-<div align="center">
-  <img src="screenshots/Screenshot_٢٠٢٦٠٥٠١_٢٠٥١٠١.jpg" width="30%">
-  <img src="screenshots/Screenshot_٢٠٢٦٠٥٠١_٢٠٥١١٨.jpg" width="30%">
-  <img src="screenshots/Screenshot_٢٠٢٦٠٥٠١_٢٠٥١٢٣.jpg" width="30%">
-</div>
+
 <br>
 <div align="center">
   <img src="screenshots/Screenshot_٢٠٢٦٠٥٠١_٢٠٥١٢٨.jpg" width="30%">
