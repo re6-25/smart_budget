@@ -97,10 +97,22 @@ class _CategoryManagerScreenState extends State<CategoryManagerScreen> {
               onPressed: () => Navigator.pop(context),
               child: const Text('إلغاء')),
           ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
               Navigator.pop(context);
-              provider.deleteCategory(cat.id!);
-              context.read<ExpenseProvider>().loadAll();
+              final deleted = await provider.deleteCategory(cat.id!);
+              if (!context.mounted) return;
+
+              if (!deleted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text(
+                        'لا يمكن حذف الفئة لأنها مرتبطة بمصروفات'),
+                  ),
+                );
+                return;
+              }
+
+              await context.read<ExpenseProvider>().loadAll();
             },
             style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
             child: const Text('حذف', style: TextStyle(color: Colors.white)),

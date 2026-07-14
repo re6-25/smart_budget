@@ -134,7 +134,9 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
     final theme = Theme.of(context);
 
     if (_selectedCategory == null && exp.categories.isNotEmpty) {
-      _selectedCategory = exp.categories.first;
+      _selectedCategory = widget.existingExpense != null
+          ? exp.getCategoryById(widget.existingExpense!.categoryId)
+          : exp.categories.first;
     }
 
     _selectedCurrency ??= settings.currency;

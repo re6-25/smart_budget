@@ -11,7 +11,7 @@ class Badge {
     required this.description,
     required this.iconCode,
     this.earnedDate,
-  });e
+  });
 
   bool get isEarned => earnedDate != null;
 }

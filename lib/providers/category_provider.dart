@@ -23,8 +23,12 @@ class CategoryProvider extends ChangeNotifier {
     await loadCategories();
   }
 
-  Future<void> deleteCategory(int id) async {
+  Future<bool> deleteCategory(int id) async {
+    final expenses = await _db.getExpensesByCategory(id);
+    if (expenses.isNotEmpty) return false;
+
     await _db.deleteCategory(id);
     await loadCategories();
+    return true;
   }
 }
